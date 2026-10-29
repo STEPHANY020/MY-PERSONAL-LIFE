@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Life</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>✿ My Personal Life</h2>
+    <p>Tu espacio, tus reglas ♡</p>
+    <nav>
+      <button data-page="inicio">⌂ Inicio</button>
+      <button data-page="animo">☼ Estado de ánimo</button>
+      <button data-page="ciclo">♡ Mi ciclo</button>
+      <button data-page="salud">✚ Salud y cuidados</button>
+      <button data-page="nutricion">❋ Nutrición</button>
+      <button data-page="actividades">✓ Actividades</button>
+      <button data-page="atenciones">＋ Mis atenciones</button>
+      <button data-page="ahorros">◇ Ahorros y gastos</button>
+      <button data-page="seguridad">⌖ Seguridad</button>
+      <button data-page="lugares">⌕ Restaurantes y lugares</button>
+      <button data-page="musica">♫ Mi música</button>
+      <button data-page="archivados">▣ Mis archivados</button>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <p id="fecha"></p>
+      <h1 id="titulo">Bienvenida a tu espacio personal ✨</h1>
+      <p>Un día a la vez. Cuídate, organízate y disfruta tu camino.</p>
+    </header>
+
+    <section id="inicio" class="pagina activa">
+      <div class="hero">
+        <div>
+          <h2>Haz espacio para ti 💜</h2>
+          <p>Tu vida, tus emociones, tus metas y tus pequeños logros.</p>
+          <label>Tu foto personal
+            <input type="file" id="foto" accept="image/*">
+          </label>
+          <img id="vistaFoto" alt="Mi foto personal">
+        </div>
+      </div>
+      <div class="tarjetas">
+        <article><span>♡</span><h3>Mi ánimo</h3><p id="resumenAnimo">Aún no registrado</p></article>
+        <article><span>✓</span><h3>Mis actividades</h3><p id="resumenTareas">0 pendientes</p></article>
+        <article><span>◇</span><h3>Mi balance</h3><p id="resumenDinero">$0.00</p></article>
+      </div>
+      <div class="panel">
+        <h2>¿Cómo estás hoy?</h2>
+        <div class="emociones">
+          <button data-emocion="Feliz">😊 Feliz</button>
+          <button data-emocion="Bien">🙂 Bien</button>
+          <button data-emocion="Triste">😔 Triste</button>
+          <button data-emocion="Cansada/o">😴 Cansada/o</button>
+          <button data-emocion="Preocupada/o">💭 Preocupada/o</button>
+        </div>
+        <button id="guardarAnimo">Guardar mi estado de ánimo</button>
+      </div>
+    </section>
+
+    <section id="animo" class="pagina">
+      <h2>Mi bienestar emocional 🌷</h2>
+      <div class="panel">
+        <label>¿Qué sientes hoy?
+          <select id="emocion">
+            <option>Feliz</option><option>Bien</option><option>Triste</option>
+            <option>Cansada/o</option><option>Preocupada/o</option><option>Enojada/o</option>
+          </select>
+        </label>
+        <label>¿Qué tienes en mente?
+          <textarea id="notaAnimo" placeholder="Escribe cómo te sientes..."></textarea>
+        </label>
+        <button id="registrarAnimo">Registrar emoción</button>
+      </div>
+      <div class="panel"><h3>Mi historial</h3><div id="historialAnimo"></div></div>
+      <div class="panel">
+        <h3>Mi sistema nervioso y calma</h3>
+        <p>Haz una pausa, respira cómodamente y date unos minutos para descansar.</p>
+        <label>¿Qué me ayuda a sentir tranquilidad?
+          <textarea id="calma"></textarea>
+        </label>
+        <button id="guardarCalma">Guardar mis herramientas</button>
+      </div>
+    </section>
+
+    <section id="ciclo" class="pagina">
+      <h2>Mi calendario menstrual ♡</h2>
+      <div class="panel">
+        <div class="fila">
+          <label>Año
+            <select id="anio"></select>
+          </label>
+          <label>Mes
+            <select id="mes"></select>
+          </label>
+        </div>
+        <div class="fila">
+          <label>Primer día del período
+            <input type="date" id="inicioPeriodo">
+          </label>
+          <label>Duración del sangrado
+            <select id="duracion">
+              <option value="1">1 día</option><option value="2">2 días</option>
+              <option value="3">3 días</option><option value="4">4 días</option>
+              <option value="5" selected>5 días</option><option value="6">6 días</option>
+              <option value="7">7 días</option>
+            </select>
+          </label>
+        </div>
+        <label>Duración aproximada del ciclo
+          <select id="ciclo">
+            <option value="21">21 días</option><option value="24">24 días</option>
+            <option value="26">26 días</option><option value="28" selected>28 días</option>
+            <option value="30">30 días</option><option value="32">32 días</option>
+            <option value="35">35 días</option>
+          </select>
+        </label>
+        <button id="guardarPeriodo">Guardar período</button>
+        <button id="predecirPeriodo">Estimar próximos ciclos</button>
+      </div>
+      <div class="panel">
+        <h3 id="tituloCalendario"></h3>
+        <div id="calendario" class="calendario"></div>
+        <p>Rosa: período registrado o estimado. Morado: hoy.</p>
+      </div>
+      <div class="panel"><h3>Historial de períodos</h3><div id="historialPeriodos"></div></div>
+      <p class="aviso">Las fechas futuras son estimaciones, no garantías. Esta herramienta no diagnostica problemas de salud ni confirma ovulación o embarazo.</p>
+    </section>
+
+    <section id="salud" class="pagina">
+      <h2>Salud y cuidados ✚</h2>
+      <div class="panel">
+        <label>¿Qué síntoma tienes?
+          <select id="sintoma">
+            <option>Malestar general</option><option>Fiebre</option><option>Tos</option>
+            <option>Dolor de garganta</option><option>Dolor de cabeza</option>
+            <option>Congestión nasal</option><option>Cansancio</option><option>Otro</option>
+          </select>
+        </label>
+        <label>Temperatura (°C, opcional)<input type="number" id="temperatura" step="0.1"></label>
+        <label>Detalles<textarea id="detalleSalud"></textarea></label>
+        <button id="guardarSintoma">Guardar registro</button>
+      </div>
+      <div class="panel">
+        <h3>Medicamentos y cuidados</h3>
+        <label>Nombre<input id="medicamento"></label>
+        <label>Indicación médica / dosis<input id="dosis"></label>
+        <label>Fecha y hora<input id="horaMedicamento" type="datetime-local"></label>
+        <button id="guardarMedicamento">Añadir cuidado</button>
+      </div>
+      <div class="panel"><h3>Mi historial de salud</h3><div id="historialSalud"></div></div>
+      <p class="aviso">Esta página no diagnostica enfermedades. Ante dificultad para respirar, dolor de pecho o una emergencia, busca atención médica urgente.</p>
+    </section>
+
+    <section id="nutricion" class="pagina">
+      <h2>Nutrición y bienestar 🍎</h2>
+      <div class="panel">
+        <label>Peso en kg (opcional)<input type="number" id="peso" step="0.1"></label>
+        <label>Tipo de comida
+          <select id="tipoComida">
+            <option>Desayuno</option><option>Media mañana</option>
+            <option>Almuerzo</option><option>Merienda</option><option>Cena</option>
+          </select>
+        </label>
+        <label>¿Qué comiste?
+          <input id="comida" placeholder="Ej. arroz, pollo y ensalada">
+        </label>
+        <label>Notas<textarea id="notaComida"></textarea></label>
+        <button id="guardarComida">Guardar comida</button>
+      </div>
+      <div class="panel">
+        <h3>Busca un alimento</h3>
+        <input id="buscarAlimento" placeholder="Uva, manzana, tomate...">
+        <div id="alimentos" class="alimentos"></div>
+      </div>
+      <div class="panel"><h3>Mis comidas</h3><div id="historialComidas"></div></div>
+    </section>
+
+    <section id="actividades" class="pagina">
+      <h2>Mis actividades ✓</h2>
+      <div class="categorias">
+        <button data-categoria="Universidad">🎓 Universidad</button>
+        <button data-categoria="Colegio">📚 Colegio</button>
+        <button data-categoria="Personal">🌷 Personales</button>
+        <button data-categoria="Extra">✨ Extras</button>
+      </div>
+      <div class="panel">
+        <label>Tipo
+          <select id="tipoActividad">
+            <option>Universidad</option><option>Colegio</option>
+            <option>Personal</option><option>Extra</option>
+          </select>
+        </label>
+        <label>Fecha<input type="date" id="fechaActividad"></label>
+        <label>Hora<input type="time" id="horaActividad"></label>
+        <label>Actividad<input id="nombreActividad" placeholder="¿Qué debes hacer?"></label>
+        <label>Detalles<input id="detalleActividad" placeholder="¿Para qué?"></label>
+        <button id="guardarActividad">Guardar actividad</button>
+      </div>
+      <div class="panel"><h3>Mi agenda</h3><div id="listaActividades"></div></div>
+    </section>
+
+    <section id="atenciones" class="pagina">
+      <h2>Mis atenciones 📅</h2>
+      <div class="panel">
+        <label>Tipo
+          <select id="tipoAtencion">
+            <option>Médica</option><option>Agencia / trámite</option>
+            <option>Viaje</option><option>Estudios</option><option>Personal</option>
+          </select>
+        </label>
+        <label>Fecha<input type="date" id="fechaAtencion"></label>
+        <label>Hora<input type="time" id="horaAtencion"></label>
+        <label>Lugar<input id="lugarAtencion"></label>
+        <label>Notas<input id="notaAtencion"></label>
+        <button id="guardarAtencion">Guardar atención</button>
+      </div>
+      <div class="panel"><h3>Mis citas y compromisos</h3><div id="listaAtenciones"></div></div>
+    </section>
+
+    <section id="ahorros" class="pagina">
+      <h2>Mis ahorros y gastos ◇</h2>
+      <div class="tarjetas">
+        <article><h3>Ingresos</h3><p id="ingresos">$0.00</p></article>
+        <article><h3>Gastos</h3><p id="gastos">$0.00</p></article>
+        <article><h3>Balance</h3><p id="balance">$0.00</p></article>
+      </div>
+      <div class="panel">
+        <label>Tipo
+          <select id="tipoDinero">
+            <option value="ingreso">Ingreso / venta</option>
+            <option value="gasto">Gasto / compra</option>
+            <option value="ahorro">Ahorro</option>
+          </select>
+        </label>
+        <label>Monto en dólares<input type="number" id="monto" min="0.01" step="0.01"></label>
+        <label>Fecha<input type="date" id="fechaDinero"></label>
+        <label>Concepto<input id="concepto"></label>
+        <label>Comprobante opcional<input type="file" id="comprobante" accept="image/*,.pdf"></label>
+        <button id="guardarDinero">Guardar movimiento</button>
+      </div>
+      <div class="panel"><h3>Historial financiero</h3><div id="historialDinero"></div></div>
+    </section>
+
+    <section id="seguridad" class="pagina">
+      <h2>Seguridad y ubicación ⌖</h2>
+      <div class="panel">
+        <p id="estadoUbicacion">Todavía no has solicitado tu ubicación.</p>
+        <button id="obtenerUbicacion">Obtener mi ubicación</button>
+        <div id="enlaceMapa"></div>
+        <label>Mensaje para compartir<textarea id="mensajeSeguridad">Hola, comparto mi ubicación contigo.</textarea></label>
+        <button id="whatsapp">Compartir por WhatsApp</button>
+        <button id="correo">Compartir por correo</button>
+      </div>
+      <p class="aviso">La ubicación requiere tu permiso. Revisa el mensaje y el destinatario antes de compartir.</p>
+    </section>
+
+    <section id="lugares" class="pagina">
+      <h2>Restaurantes y lugares de Ecuador 📍</h2>
+      <div class="panel">
+        <label>Provincia
+          <select id="provincia">
+            <option>Guayas</option><option>Manabí</option><option>Esmeraldas</option>
+            <option>Pichincha</option><option>Azuay</option><option>Santa Elena</option>
+            <option>El Oro</option><option>Los Ríos</option><option>Loja</option>
+            <option>Imbabura</option><option>Tungurahua</option><option>Chimborazo</option>
+            <option>Cotopaxi</option><option>Bolívar</option><option>Cañar</option>
+            <option>Carchi</option><option>Morona Santiago</option><option>Napo</option>
+            <option>Orellana</option><option>Pastaza</option><option>Sucumbíos</option>
+            <option>Zamora Chinchipe</option><option>Santo Domingo de los Tsáchilas</option>
+            <option>Galápagos</option>
+          </select>
+        </label>
+        <label>Ciudad o sector<input id="ciudad" value="Guayaquil"></label>
+        <label>¿Qué buscas?
+          <select id="tipoLugar">
+            <option>Mejores restaurantes</option><option>Comida típica ecuatoriana</option>
+            <option>Cafeterías</option><option>Hospitales y clínicas</option>
+            <option>Farmacias</option><option>Agencias</option><option>Lugares turísticos</option>
+          </select>
+        </label>
+        <button id="buscarLugar">Buscar en Google Maps</button>
+      </div>
+    </section>
+
+    <section id="musica" class="pagina">
+      <h2>Mi música favorita ♫</h2>
+      <div class="panel">
+        <label>Nombre de la canción<input id="nombreCancion"></label>
+        <label>Artista<input id="artista"></label>
+        <label>Enlace de YouTube<input id="enlaceCancion" type="url" placeholder="https://www.youtube.com/..."></label>
+        <button id="guardarCancion">Añadir a favoritos</button>
+      </div>
+      <div class="panel"><h3>Mi colección</h3><div id="coleccionMusica"></div></div>
+      <p class="aviso">Se guardan enlaces, no archivos musicales. La página no elimina anuncios de YouTube.</p>
+    </section>
+
+    <section id="archivados" class="pagina">
+      <h2>Mis archivados ▣</h2>
+      <div class="panel">
+        <p>Exporta una copia de tus registros o importa un respaldo anterior.</p>
+        <button id="exportar">Exportar mis datos</button>
+        <label>Importar respaldo JSON<input type="file" id="importar" accept="application/json"></label>
+        <button id="borrarDatos" class="peligro">Borrar todos mis datos</button>
+      </div>
+    </section>
+
+    <footer>My Personal Life · Un día a la vez ♡</footer>
+  </main>
+  <div id="mensaje" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
